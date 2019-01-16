@@ -7,7 +7,7 @@ const url = config.url || 'mongodb://localhost:27017';
 const databaseName = config.databaseName;
 const authDb = config.authDb || config.databaseName;
 const collection = config.collection;
-const outputFileName = config.outputFileName || './query_results.csv';
+const outputFilePath = config.outputFilePath || './query_results.csv';
 
 const query = config.query || {};
 const projection = config.projection || {};
@@ -31,7 +31,7 @@ const projection = config.projection || {};
       const user = await cursor.next();
       users.push(user);
     }
-    fs.writeFileSync(outputFileName, parse(users));
+    fs.writeFileSync(outputFilePath, parse(users));
   } catch (err) {
     console.log(err.stack);
   }
