@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const fs = require('fs');
 const { MongoClient } = require('mongodb');
 const { parse } = require('json2csv');
