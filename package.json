@@ -1,10 +1,10 @@
 {
-  "name": "mongo2csv",
+  "name": "mongo-csv",
   "version": "1.0.0",
   "description": "Query your Mongo DB collection and write the results to a CSV file",
-  "main": "mongo2csv.js",
+  "main": "mongo-csv.js",
   "bin": {
-    "mongo2csv": "mongo2csv.js"
+    "mongo-csv": "mongo-csv.js"
   },
   "dependencies": {
     "json2csv": "^4.3.3",

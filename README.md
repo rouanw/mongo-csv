@@ -1,10 +1,10 @@
-# mongo2csv
+# mongo-csv
 
 > CLI tool that runs your query against MongoDB and outputs the results to CSV.
 
 ## Usage
 
-Provide a `config.json` file in the directory you'll run `mongo2csv`, with the following format:
+Provide a `config.json` file in the directory you'll run `mongo-csv`, with the following format:
 
 ```json
 {
@@ -15,17 +15,17 @@ Provide a `config.json` file in the directory you'll run `mongo2csv`, with the f
 }
 ```
 
-Then you can either run `mongo2csv` with `npx`:
+Then you can either run `mongo-csv` with `npx`:
 
 ```js
-MONGO_USER=my_user MONGO_PASSWORD=secret npx mongo2csv
+MONGO_USER=my_user MONGO_PASSWORD=secret npx mongo-csv
 ```
 
-Or you can install `mongo2csv` globally:
+Or you can install `mongo-csv` globally:
 
 ```js
-npm install -g mongo2csv
-MONGO_USER=my_user MONGO_PASSWORD=secret mongo2csv
+npm install -g mongo-csv
+MONGO_USER=my_user MONGO_PASSWORD=secret mongo-csv
 ```
 
 ## Config
@@ -42,7 +42,7 @@ Option|Description|Default value
 
 ## Performance tips
 
-`mongo2csv` will read documents using a `cursor` to avoid reading them all at once, but here are some additional performance considerations:
+`mongo-csv` will read documents using a `cursor` to avoid reading them all at once, but here are some additional performance considerations:
 - Write as specific a `query` as you can so you only get the data you really need
 - Use the `projection` option to specify only the fields you really need, so Mongo doesn't need to work to get you the rest
 - It's usually a good idea to have a database index in place to support your query, so it can run quickly
