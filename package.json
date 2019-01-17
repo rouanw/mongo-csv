@@ -1,8 +1,12 @@
 {
   "name": "mongo-csv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Query your Mongo DB collection and write the results to a CSV file",
   "main": "mongo-csv.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rouanw/mongo-csv"
+  },
   "bin": {
     "mongo-csv": "mongo-csv.js"
   },
