@@ -2,6 +2,10 @@
 
 > CLI tool that runs your query against MongoDB and outputs the results to CSV.
 
+[![npm version](https://badge.fury.io/js/mongo-csv.svg)](https://badge.fury.io/js/mongo-csv)
+![Dependency Status](https://david-dm.org/rouanw/mongo-csv.svg)
+![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)
+
 ## Usage
 
 Provide a `config.json` file in the directory you'll run `mongo-csv`, with the following format:
