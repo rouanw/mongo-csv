@@ -15,13 +15,19 @@ const query = config.query || {};
 const projection = config.projection || {};
 
 (async function() {
+  const auth = (process.env.MONGO_USER || config.mongoUser)
+    ? {
+      auth: {
+        user: process.env.MONGO_USER || config.mongoUser,
+        password: process.env.MONGO_PASSWORD || config.mongoPassword,
+      },
+    }
+    : {};
+
   const client = new MongoClient(url, {
-    auth: {
-      user: process.env.MONGO_USER || config.mongoUser,
-      password: process.env.MONGO_PASSWORD || config.mongoPassword,
-    },
     useNewUrlParser: true,
     authSource: authDb,
+    ...auth,
   });
 
   try {
