@@ -34,12 +34,12 @@ const projection = config.projection || {};
     await client.connect();
     const db = client.db(databaseName);
     const cursor = db.collection(collection).find(query, { projection });
-    const users = [];
+    const documents = [];
     while (await cursor.hasNext()) {
-      const user = await cursor.next();
-      users.push(user);
+      const document = await cursor.next();
+      documents.push(document);
     }
-    fs.writeFileSync(outputFilePath, parse(users));
+    fs.writeFileSync(outputFilePath, parse(documents));
   } catch (err) {
     console.log(err.stack);
   }
