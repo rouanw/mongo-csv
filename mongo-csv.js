@@ -39,6 +39,10 @@ const projection = config.projection || {};
       const document = await cursor.next();
       documents.push(document);
     }
+    if (documents.length === 0) {
+      console.error('0 documents were found, aborting');
+      process.exit(1);
+    }
     fs.writeFileSync(outputFilePath, parse(documents));
   } catch (err) {
     console.log(err.stack);
