@@ -12,7 +12,7 @@ const collection = config.collection;
 const outputFilePath = config.outputFilePath || './query_results.csv';
 
 const query = config.query || {};
-const projection = config.projection || {};
+const options = config.options || {};
 
 const mongoQuery = (query) => {
   const dateRegex = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/;
@@ -43,7 +43,7 @@ const mongoQuery = (query) => {
   try {
     await client.connect();
     const db = client.db(databaseName);
-    const cursor = db.collection(collection).find(mongoQuery(query), { projection });
+    const cursor = db.collection(collection).find(mongoQuery(query), options);
     const documents = [];
     while (await cursor.hasNext()) {
       const document = await cursor.next();

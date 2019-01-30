@@ -40,7 +40,7 @@ Option|Description|Default value
 `collection`|Name of the collection with your data|**required**
 `url`|URL of the Mongo server to which you're connecting|`mongodb://localhost:27017`
 `query`|The query you'd like to run to filter the data returned|`{}` (all records)
-`projection`|Lets you specify the fields you'd like to return|`{}` (all fields)
+`options`|Lets you specify any of the Mongo driver's [find options](http://mongodb.github.io/node-mongodb-native/3.1/api/Collection.html#find). This is especially useful for specifying a `projection` to limit the number of columns returned, or a `limit`, to limit the number of rows.|`{}`
 `outputFilePath`|Path to the file to which you want the results written|`./query_results.csv`
 `authDb`|Specify the database against which to authenticate|Defaults to the value supplied for `databaseName`
 
