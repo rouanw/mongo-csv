@@ -1,6 +1,6 @@
 {
   "name": "mongo-csv",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Query your Mongo DB collection and write the results to a CSV file",
   "main": "mongo-csv.js",
   "repository": {
