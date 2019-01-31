@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const fs = require('fs');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 const { parse } = require('json2csv');
 const config =require(`${process.cwd()}/config.json`);
 
@@ -19,6 +19,9 @@ const mongoQuery = (query) => {
   return JSON.parse(JSON.stringify(query), (key, value) => {
     if (typeof value === 'string' && dateRegex.test(value)) {
       return new Date(value);
+    }
+    if (key === '_id') {
+      return new ObjectID(value);
     }
     return value;
   });
