@@ -1,8 +1,9 @@
 #! /usr/bin/env node
 
 const fs = require('fs');
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient } = require('mongodb');
 const { parse } = require('json2csv');
+const mongoQuery = require('./lib/mongo-query');
 const config =require(`${process.cwd()}/config.json`);
 
 const url = config.url || 'mongodb://localhost:27017';
@@ -13,19 +14,6 @@ const outputFilePath = config.outputFilePath || './query_results.csv';
 
 const query = config.query || {};
 const options = config.options || {};
-
-const mongoQuery = (query) => {
-  const dateRegex = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/;
-  return JSON.parse(JSON.stringify(query), (key, value) => {
-    if (typeof value === 'string' && dateRegex.test(value)) {
-      return new Date(value);
-    }
-    if (key === '_id') {
-      return new ObjectID(value);
-    }
-    return value;
-  });
-};
 
 (async function() {
   const auth = (process.env.MONGO_USER || config.mongoUser)

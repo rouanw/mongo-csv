@@ -14,9 +14,11 @@
     "json2csv": "^4.3.3",
     "mongodb": "^3.1.11"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tape": "^4.9.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "keywords": [
     "mongo",
