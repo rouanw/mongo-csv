@@ -3,6 +3,7 @@
 > CLI tool that runs your query against MongoDB and outputs the results to CSV.
 
 [![npm version](https://badge.fury.io/js/mongo-csv.svg)](https://badge.fury.io/js/mongo-csv)
+[![Build Status](https://travis-ci.org/rouanw/mongo-csv.svg?branch=master)](https://travis-ci.org/rouanw/mongo-csv)
 ![Dependency Status](https://david-dm.org/rouanw/mongo-csv.svg)
 ![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)
 
