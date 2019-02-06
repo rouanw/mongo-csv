@@ -56,3 +56,7 @@ Option|Description|Default value
 - It's usually a good idea to have a database index in place to support your query, so it can run quickly
 - Avoid reading huge amounts of data at your peak usage periods
 - If your Mongo environment is a replica set, it's a good idea to point at one of your secondary servers to leave the primary server free to take care of new data being written
+
+## Licence
+
+MIT
