@@ -7,6 +7,8 @@
 ![Dependency Status](https://david-dm.org/rouanw/mongo-csv.svg)
 ![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)
 
+Supports both `find` and `aggregate` queries.
+
 ## Usage
 
 Provide a `config.json` file in the directory you'll run `mongo-csv`, with the following format:
@@ -40,6 +42,7 @@ Option|Description|Default value
 `databaseName`|Name of the database with your data|**required**
 `collection`|Name of the collection with your data|**required**
 `url`|URL of the Mongo server to which you're connecting|`mongodb://localhost:27017`
+`method`|Method you want to call on the collection - `find` or `aggregate`|`find`
 `query`|The query you'd like to run to filter the data returned|`{}` (all records)
 `options`|Lets you specify any of the Mongo driver's [find options](http://mongodb.github.io/node-mongodb-native/3.1/api/Collection.html#find). This is especially useful for specifying a `projection` to limit the number of columns returned, or a `limit`, to limit the number of rows.|`{}`
 `outputFilePath`|Path to the file to which you want the results written|`./query_results.csv`
