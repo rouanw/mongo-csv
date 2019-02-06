@@ -57,6 +57,10 @@ Option|Description|Default value
 - Avoid reading huge amounts of data at your peak usage periods
 - If your Mongo environment is a replica set, it's a good idea to point at one of your secondary servers to leave the primary server free to take care of new data being written
 
+## FAQ
+
+- Does `mongo-csv` support `distinct`? Not directly, but you can achieve the same result [using an aggregation](https://docs.mongodb.com/manual/reference/operator/aggregation/group/#aggregation-group-distinct-values).
+
 ## Licence
 
 MIT
