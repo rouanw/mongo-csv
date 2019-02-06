@@ -16,3 +16,10 @@ test('mongoQuery converts _id fields to ObjectIDs', (t) => {
   t.ok(convertedQuery._id instanceof ObjectID);
   t.end();
 });
+
+test('mongoQuery should not convert _id for project aggregate stages into ObjectIDs', (t) => {
+  const query = [{ $project: { _id: 0 } }];
+  const convertedQuery = mongoQuery(query);
+  t.equals(typeof convertedQuery[0].$project._id, 'number');
+  t.end();
+});
