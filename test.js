@@ -1,6 +1,7 @@
 const test = require('tape');
 const { ObjectID } = require('mongodb');
 const mongoQuery = require('./lib/mongo-query');
+const parseMethod = require('./lib/parse-method');
 
 test('mongoQuery converts ISO date strings to dates', (t) => {
   const query = { theDate: { $gte: '2018-12-31T00:00:00.000Z', $lte: '2019-01-30T00:00:00.000Z' } };
@@ -30,3 +31,10 @@ test('mongoQuery should not convert _id for $group aggregate stages into ObjectI
   t.equals(typeof convertedQuery[0].$group._id, 'string');
   t.end();
 });
+
+test('parse method', (t) => {
+  t.plan(3)
+  t.equals(parseMethod('find'), 'find');
+  t.equals(parseMethod('aggregate'), 'aggregate');
+  t.throws(() => parseMethod('remove'));
+})
