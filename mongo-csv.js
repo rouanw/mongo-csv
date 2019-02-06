@@ -4,6 +4,7 @@ const fs = require('fs');
 const { MongoClient } = require('mongodb');
 const { parse } = require('json2csv');
 const mongoQuery = require('./lib/mongo-query');
+const parseMethod = require('./lib/parse-method');
 const config =require(`${process.cwd()}/config.json`);
 
 const url = config.url || 'mongodb://localhost:27017';
@@ -14,6 +15,7 @@ const outputFilePath = config.outputFilePath || './query_results.csv';
 
 const query = config.query || {};
 const options = config.options || {};
+const method = config.method ? parseMethod(config.method) : 'find';
 
 (async function() {
   const auth = (process.env.MONGO_USER || config.mongoUser)
@@ -34,7 +36,7 @@ const options = config.options || {};
   try {
     await client.connect();
     const db = client.db(databaseName);
-    const cursor = db.collection(collection).find(mongoQuery(query), options);
+    const cursor = db.collection(collection)[method](mongoQuery(query), options);
     const documents = [];
     while (await cursor.hasNext()) {
       const document = await cursor.next();
